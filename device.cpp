@@ -4,6 +4,7 @@
 #include <memory>
 
 using namespace std;
+int streamcounter;
 
 class Stream
 {
@@ -45,7 +46,9 @@ class Stream
 
 int main()
 {
-    Stream s1,s2,s3;
+    shared_ptr<Stream> s1(new Stream(++streamcounter));
+    shared_ptr<Stream> s2(new Stream(++streamcounter));
+    shared_ptr<Stream> s3(new Stream(++streamcounter));
     s1.setMassFlow(10.0);
     s2.setMassFlow(5.0);
 }
