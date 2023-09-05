@@ -18,6 +18,17 @@ class Stream
       void print(){cout<<"Stream "<<getName()<<" "<<getMassFlow()<<endl;}
 };
 
+class Device
+{
+    private:
+      vector<shared_ptr<Stream>> inputs;
+      vector<shared_ptr<Stream>> outputs;
+    public:
+      void addInput(shared_ptr<Stream> s){inputs.push_back(s);}
+      void addOutput(shared_ptr<Stream> s){outputs.push_back(s);}
+      virtual void updateOutputs() = 0;
+};
+
 class Stream
 {
     private:
