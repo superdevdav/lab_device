@@ -91,6 +91,7 @@ public:
     void addOutput(shared_ptr<Stream> s){
       if(outputs.size() < outputAmount) outputs.push_back(s);
       else throw "OUTPUT STREAM LIMIT!";
+    }
 
     /**
      * @brief Update the output streams of the device (to be implemented by derived classes).
