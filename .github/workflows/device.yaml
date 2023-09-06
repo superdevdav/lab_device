@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "nemirko" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "nemirko" ]
 
 jobs:
   build:
@@ -16,4 +16,4 @@ jobs:
     - name: make
       run: make
     - name: execute
-      run: ./a.out
+      run: ./program.out
