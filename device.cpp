@@ -248,8 +248,8 @@ void testTooManyOutputStreams(){
     try{
         dl.addOutput(s3);
     } catch(const string ex){
-         if (ex == "OUTPUT STREAM LIMIT!") {
-        cout << "Test 1 passed" << endl;
+         if (ex == "OUTPUT STREAM LIMIT!")
+            cout << "Test 1 passed" << endl;
 
         return;
     }
@@ -270,8 +270,8 @@ void testTooManyInputStreams(){
     try{
         dl.addInput(s3);
     } catch(const string ex){
-         if (ex == "INPUT STREAM LIMIT!") {
-        cout << "Test 2 passed" << endl;
+         if (ex == "INPUT STREAM LIMIT!")
+            cout << "Test 2 passed" << endl;
 
         return;
     }
@@ -295,18 +295,20 @@ void testInputEqualOutput(){
     
     dl.updateOutputs();
     
-    if(dl.outputs.at(0).getMassFlow + dl.outputs.at(1).getMassFlow == dl.inputs.at(0).getMassFlow){
+    if(dl.outputs.at(0).getMassFlow + dl.outputs.at(1).getMassFlow == dl.inputs.at(0).getMassFlow)
         cout << "Test 3 passed" << endl;
-    } else cout << "Test 3 failed" << endl;
+    else
+        cout << "Test 3 failed" << endl;
 }
 
 void tests(){
-    shouldSetOutputsCorrectlyWithOneOutput();
-    shouldCorrectOutputs();
-    shouldCorrectInputs();
     testInputEqualOutput();
     testTooManyOutputStreams();
     testTooManyInputStreams();
+    
+    shouldSetOutputsCorrectlyWithOneOutput();
+    shouldCorrectOutputs();
+    shouldCorrectInputs();
 }
 
 /**
