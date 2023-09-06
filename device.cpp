@@ -47,6 +47,12 @@ class Mixer: public Device
         }
         inputs.push_back(s);
       }
+      void addOutput(shared_ptr<Stream> s) override {
+        if (outputs.size() == MIXER_OUTPUTS) {
+          throw "Too match outputs";
+        }
+        outputs.push_back(s);
+      }
       void updateOutputs() override {
         double sum_mass_flow = 0;
         for (const auto& input_stream : inputs) {
