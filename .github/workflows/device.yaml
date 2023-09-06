@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: make
       run: |
-        git checkout nemirko
+        /usr/bin/git checkout --progress --force -B nemirko refs/remotes/origin/nemirko
         make
     - name: execute
       run: ./program.out
