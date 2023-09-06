@@ -15,7 +15,7 @@ int streamcounter; ///< Global variable to keep track of stream creation.
 
 /**
  * @class Stream
- * @brief Represents a data stream with a name and mass flow.
+ * @brief Represents a chemical stream with a name and mass flow.
  */
 class Stream
 {
@@ -62,7 +62,7 @@ public:
 
 /**
  * @class Device
- * @brief Represents a device that manipulates data streams.
+ * @brief Represents a device that manipulates chemical streams.
  */
 class Device
 {
