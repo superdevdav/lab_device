@@ -76,25 +76,21 @@ protected:
     int inputAmount;
     int outputAmount;
 public:
-    void addInput(shared_ptr<Stream> s){
-      if(inputs.size() < inputAmount) inputs.push_back(s);
-      else throw"INPUT STREAM LIMIT!";
-    }
-    void addOutput(shared_ptr<Stream> s){
-      if(outputs.size() < outputAmount) outputs.push_back(s);
-      else throw "OUTPUT STREAM LIMIT!";
-    }
     /**
      * @brief Add an input stream to the device.
      * @param s A shared pointer to the input stream.
      */
-    void addInput(shared_ptr<Stream> s) { inputs.push_back(s); }
-
+    void addInput(shared_ptr<Stream> s){
+      if(inputs.size() < inputAmount) inputs.push_back(s);
+      else throw"INPUT STREAM LIMIT!";
+    }
     /**
      * @brief Add an output stream to the device.
      * @param s A shared pointer to the output stream.
      */
-    void addOutput(shared_ptr<Stream> s) { outputs.push_back(s); }
+    void addOutput(shared_ptr<Stream> s){
+      if(outputs.size() < outputAmount) outputs.push_back(s);
+      else throw "OUTPUT STREAM LIMIT!";
 
     /**
      * @brief Update the output streams of the device (to be implemented by derived classes).
@@ -219,7 +215,8 @@ void shouldCorrectInputs() {
     cout << "Test 3 failed"s << endl;
 }
 
-class Reactor : Device{
+class Reactor : public Device{
+public:
     Reactor(bool isDoubleReactor) {
         inputAmount = 1;
         if (isDoubleReactor) outputAmount = 2;
@@ -229,9 +226,8 @@ class Reactor : Device{
     void updateOutputs() override{
         double inputMass = inputs.at(0) -> getMassFlow();
             for(int i = 0; i < outputAmount; i++){
-            double outputLocal = inputMass * (1/(outputAmount - i));
+            double outputLocal = inputMass * (1/outputAmount);
             outputs.at(i) -> setMassFlow(outputLocal);
-            inputMass -= outputLocal;
         }
     }
 };
