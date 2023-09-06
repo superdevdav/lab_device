@@ -41,6 +41,12 @@ class Mixer: public Device
       Mixer(int inputs_count): Device() {
         _inputs_count = inputs_count;
       }
+      void addInput(shared_ptr<Stream> s) override {
+        if (inputs.size() == _inputs_count) {
+          throw "Too match inputs";
+        }
+        inputs.push_back(s);
+      }
       void updateOutputs() override {
         double sum_mass_flow = 0;
         for (const auto& input_stream : inputs) {
