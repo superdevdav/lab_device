@@ -41,13 +41,13 @@ class Mixer: public Device
       Mixer(int inputs_count): Device() {
         _inputs_count = inputs_count;
       }
-      void addInput(shared_ptr<Stream> s) override {
+      void addInput(shared_ptr<Stream> s) {
         if (inputs.size() == _inputs_count) {
           throw "Too match inputs";
         }
         inputs.push_back(s);
       }
-      void addOutput(shared_ptr<Stream> s) override {
+      void addOutput(shared_ptr<Stream> s) {
         if (outputs.size() == MIXER_OUTPUTS) {
           throw "Too match outputs";
         }
@@ -56,7 +56,7 @@ class Mixer: public Device
       void updateOutputs() override {
         double sum_mass_flow = 0;
         for (const auto& input_stream : inputs) {
-          sum_mass_flow += input_stream.getMassFlow();
+          sum_mass_flow += input_stream -> getMassFlow();
         }
 
         double output_mass = sum_mass_flow / inputs.size(); // divide 0
@@ -65,16 +65,24 @@ class Mixer: public Device
           output_stream -> setMassFlow(output_mass);
         }
       }
-}
+};
 
 int main()
 {
     streamcounter=0;
-    Mixer d1 = Mixer(2)
+    Mixer d1 = Mixer(2);
     
     shared_ptr<Stream> s1(new Stream(++streamcounter));
     shared_ptr<Stream> s2(new Stream(++streamcounter));
-    shared_ptr<Stream> s2(new Stream(++streamcounter));
+    shared_ptr<Stream> s3(new Stream(++streamcounter));
     s1->setMassFlow(10.0);
     s2->setMassFlow(5.0);
+
+    d1.addInput(s1);
+    d1.addInput(s2);
+    d1.addOutput(s3);
+
+    d1.updateOutputs();
+
+    s3 -> print();
 }
