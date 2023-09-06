@@ -43,13 +43,13 @@ class Mixer: public Device
       }
       void addInput(shared_ptr<Stream> s) {
         if (inputs.size() == _inputs_count) {
-          throw "Too match inputs";
+          throw "Too much inputs";
         }
         inputs.push_back(s);
       }
       void addOutput(shared_ptr<Stream> s) {
         if (outputs.size() == MIXER_OUTPUTS) {
-          throw "Too match outputs";
+          throw "Too much outputs";
         }
         outputs.push_back(s);
       }
