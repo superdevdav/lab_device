@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <cmath>
 
 using namespace std;
 int streamcounter;
@@ -60,6 +61,10 @@ class Mixer: public Device
           sum_mass_flow += input_stream -> getMassFlow();
         }
 
+        if (outputs.empty()) {
+          throw "Should set outputs before update"s;
+        }
+
         double output_mass = sum_mass_flow / outputs.size(); // divide 0
 
         for (auto& output_stream : outputs) {
@@ -84,7 +89,7 @@ void shouldSetOutputsCorrectlyWithOneOutput() {
 
     d1.updateOutputs();
 
-    if (s3->getMassFlow() - 15 < POSSIBLE_ERROR) {
+    if (abs(s3->getMassFlow()) - 15 < POSSIBLE_ERROR) {
       cout << "Test 1 passed"s << endl;
     } else {
       cout << "Test 1 failed"s << endl;
