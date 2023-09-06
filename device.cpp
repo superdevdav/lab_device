@@ -41,6 +41,18 @@ class Mixer: public Device
       Mixer(int inputs_count): Device() {
         _inputs_count = inputs_count;
       }
+      void updateOutputs() override {
+        double sum_mass_flow = 0;
+        for (const auto& input_stream : inputs) {
+          sum_mass_flow += input_stream.getMassFlow();
+        }
+
+        double output_mass = sum_mass_flow / inputs.size(); // divide 0
+
+        for (auto& output_stream : outputs) {
+          output_stream -> setMassFlow(output_mass);
+        }
+      }
 }
 
 int main()
