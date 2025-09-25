@@ -18,5 +18,8 @@ class Separator : public Device {
 
                   double inputMass = inputs.at(0)->getMassFlow();
                   double halfMass = inputMass / 2.0;
+
+                  outputs.at(0)->setMassFlow(halfMass);
+                  outputs.at(1)->setMassFlow(halfMass);
             }
 };
