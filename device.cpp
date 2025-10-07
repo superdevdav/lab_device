@@ -76,6 +76,14 @@ protected:
     int inputAmount;
     int outputAmount;
 public:
+    const vector<shared_ptr<Stream>> getInputs() const {
+      return inputs;
+    }
+
+    const vector<shared_ptr<Stream>> getOutputs() const {
+      return outputs;
+    }
+
     /**
      * @brief Add an input stream to the device.
      * @param s A shared pointer to the input stream.
@@ -263,12 +271,12 @@ void testTooManyInputStreams(){
     Reactor dl = new Reactor(false);
     
     shared_ptr<Stream> s1(new Stream(++streamcounter));
-    shared_ptr<Stream> s3(new Stream(++streamcounter));
+    shared_ptr<Stream> s2(new Stream(++streamcounter));
     s1->setMassFlow(10.0);
     s2->setMassFlow(5.0);
     dl.addInput(s1);
     try{
-        dl.addInput(s3);
+        dl.addInput(s2);
     } catch(const string ex){
          if (ex == "INPUT STREAM LIMIT!")
             cout << "Test 2 passed" << endl;
@@ -295,7 +303,7 @@ void testInputEqualOutput(){
     
     dl.updateOutputs();
     
-    if(dl.outputs.at(0).getMassFlow + dl.outputs.at(1).getMassFlow == dl.inputs.at(0).getMassFlow)
+    if(dl.getOutputs.at(0)->getMassFlow + dl.getOutputs.at(1)->getMassFlow == dl.getInputs.at(0)->getMassFlow)
         cout << "Test 3 passed" << endl;
     else
         cout << "Test 3 failed" << endl;
