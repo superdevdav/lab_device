@@ -1,0 +1,3 @@
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

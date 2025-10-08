@@ -1,19 +1,42 @@
-name: C/C++ CI
+name: C++ Test Runner
 
 on:
   push:
-    branches: [ "main", "nemirko" ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ "main", "nemirko" ]
+    branches: [ main, master ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - uses: actions/checkout@v3
-    - name: make
-      run: make
-    - name: execute
-      run: ./a.out
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++
+
+    - name: Compile and run tests
+      run: |
+        echo "Compiling test suite..."
+        g++ -std=c++11 -o test_separator test_separator.cpp
+        
+        echo "Running tests..."
+        ./test_separator
+        
+        # Проверяем результат выполнения тестов
+        if [ $? -eq 0 ]; then
+          echo "All tests passed!"
+        else
+          echo "Tests failed!"
+          exit 1
+        fi
+
+    - name: Test summary
+      run: |
+        echo "Build and test completed successfully"
+        echo "Files in repository:"
+        ls -la

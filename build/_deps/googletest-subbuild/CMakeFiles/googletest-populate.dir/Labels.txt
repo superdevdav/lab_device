@@ -1,0 +1,14 @@
+# Target labels
+ googletest-populate
+# Source files and their labels
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule
+D:/Рабочий стол/study/Параллельное программирование/lab1/lab_device/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule
