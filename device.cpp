@@ -303,7 +303,7 @@ void testInputEqualOutput(){
     
     dl.updateOutputs();
     
-    if(dl.getOutputs.at(0)->getMassFlow + dl.getOutputs.at(1)->getMassFlow == dl.getInputs.at(0)->getMassFlow)
+    if(dl.getOutputs().at(0)->getMassFlow() + dl.getOutputs().at(1)->getMassFlow() == dl.getInputs().at(0)->getMassFlow())
         cout << "Test 3 passed" << endl;
     else
         cout << "Test 3 failed" << endl;
